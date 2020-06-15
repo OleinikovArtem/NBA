@@ -13,8 +13,6 @@
     align-items: left;
     padding-left: 10px;
   }
-  &_item {
-  }
   &_link {
     position: relative;
     font-weight: 100;
@@ -31,6 +29,18 @@
       .NavIndecator_link-page {
         white-space: nowrap;
         opacity: 1;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 3px;
+          height: 6px;
+          background-color: rgb(15, 51, 255);
+          left: -12px;
+          top: calc(50% - 3px);
+        }
       }
       .NavIndecator_link-number {
         position: absolute;

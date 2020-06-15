@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '../Nav/Nav'
+import NavToggle from '../NavToggle/NavToggle'
 import { Link } from 'react-router-dom'
 import logo from '../../img/logo.png'
 import './Header.scss'
@@ -12,7 +12,7 @@ export const Header = () => {
           <img src={logo} alt="logo" /><span>Basketball</span>
         </Link>
       </div>
-      <Nav />
+      <NavToggle />
     </header>
   )
 }

@@ -5,6 +5,13 @@
   align-items: center;
 }
 
+.logo {
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+  text-transform: uppercase;
+}
+
 .logo a{
   display: flex;
   align-items: center;

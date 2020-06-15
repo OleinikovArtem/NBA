@@ -38,3 +38,36 @@ a {
   perspective: 1400px;
   position: relative;
 }
+
+.btn {
+  display: block;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #1a1e50;
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  color: rgb(226, 226, 226);
+  width: fit-content;
+}
+.btn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(226, 226, 226);
+  left: 100%;
+  transition: 0.2s;
+  top: 0;
+}
+.btn:hover::before {
+  left: 0;
+  z-index: -1;
+}
+.btn:hover {
+  color: #1a1e50;
+}

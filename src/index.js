@@ -10,14 +10,12 @@ import { rootReducer } from './reducer/rootReducer'
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <ErrorBoundary>
-          <App />
-        </ErrorBoundary>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
