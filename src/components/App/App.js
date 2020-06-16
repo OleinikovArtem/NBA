@@ -11,7 +11,7 @@ import { CSSTransition } from 'react-transition-group'
 
 
 const App = ({ isOpen, handleIsOpen }) => {
-
+  
   const openNavStyle = {
     transform: 'translateZ(-1800px) translateX(-50%) rotateY(45deg)',
     outline: '30px solid #0f33ff'
@@ -42,8 +42,8 @@ const App = ({ isOpen, handleIsOpen }) => {
         <Header />
         <NavIndecator />
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/teams' component={Teams} />
+            <Route path='/' exact component={Home} />
+            <Route path='/teams' component={Teams} />
         </Switch>
       </main>
     </div>
@@ -58,7 +58,7 @@ const mapStateToProps = ({ nav }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleIsOpen: () => dispatch({ type: 'IS_OPEN'})
+    handleIsOpen: () => dispatch({ type: 'IS_OPEN' })
   }
 }
 
