@@ -1,20 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { useLocation, useRouteMatch } from 'react-router-dom'
 
-export const Team = ({ name, region, imgURL, colors, abbrev, index, active }) => {
+
+const Team = ({ name, region, imgURL, colors, abbrev, active, tid, pickTeam, handleOpenInfoTeam, getPlayers}) => {
   const st = { backgroundImage: `url(${imgURL})` }
+  const location = useLocation()
+  const mathc = useRouteMatch()
 
-
+  if (!name && !region && !imgURL && !colors) return null
   return (
-    <div className={`Teams_item ${active ? 'Teams_item-active': ''}`} data-index={index}>
-      <div className="Teams_item-img" style={st}>
-
+    <div className={`Teams_item ${active ? 'Teams_item-active' : ''}`}  >
+      <div className="Teams_item-img" style={st}></div>
+      <div className="Teams_item-name" onClick={
+        () => {
+          if (mathc.params.id) return null
+          handleOpenInfoTeam(tid)
+          pickTeam(tid)
+          getPlayers(tid)
+        }}>
+          <span>{region}</span> {name}
       </div>
-      <div className="Teams_item-name"><span>{region}</span> {name}</div>
+      
       <Flag arr={colors} abbrev={abbrev} />
     </div>
   )
 }
-
 
 const Flag = ({ arr, abbrev }) => {
 
@@ -54,3 +65,17 @@ const Flag = ({ arr, abbrev }) => {
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return state
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    pickTeam: (payload) => dispatch({ type: 'PICK_TEAM',  payload}) ,
+    getPlayers: (payload) => dispatch({ type: 'GET_PLAYERS_TEAM', payload})
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Team)

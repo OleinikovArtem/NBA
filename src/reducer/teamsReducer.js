@@ -1,11 +1,27 @@
 import { teams } from './db/teams'
+import { players } from './db/players'
 
-export const teamsReducer = (state = teams, action) => {
+const initialState = {
+  teams: teams,
+  pickTeam: null,
+  playersTeam: null
+}
+
+export const teamsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'OUT_TEAMS':
+    case 'PICK_TEAM':
+      const pickTeam = state.teams.filter(team => team.tid === action.payload)
+      console.log('pickteam' , pickTeam)
+      return { ...state, pickTeam }
 
-      break;
-
+    case 'GET_PLAYERS_TEAM' : 
+      const teamPlayers = players.filter(player => {
+        if(player.tid === action.payload) return player
+      })
+    return {
+      ...state,
+      playersTeam: teamPlayers
+    }
     default:
       return state
   }

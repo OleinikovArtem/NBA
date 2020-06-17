@@ -8,6 +8,8 @@ import { Home } from '../../containers/Home/Home'
 import Teams from '../../containers/Teams/Teams'
 import Nav from '../Nav/Nav'
 import { CSSTransition } from 'react-transition-group'
+import TeamInfo from '../TeamInfo/TeamInfo'
+import { Notfound } from '../../containers/Notfound/Notfound'
 
 
 const App = ({ isOpen, handleIsOpen }) => {
@@ -42,8 +44,10 @@ const App = ({ isOpen, handleIsOpen }) => {
         <Header />
         <NavIndecator />
         <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/teams' component={Teams} />
+          <Route path='/' exact component={Home} />
+          <Route path='/teams' exact component={Teams} />
+          <Route path='/teams/:id' component={TeamInfo} />
+          <Route component={Notfound} />
         </Switch>
       </main>
     </div>
