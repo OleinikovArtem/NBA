@@ -6,10 +6,10 @@ import { useHistory } from 'react-router-dom';
 
 const Teams = ({ teams, pickTeam }) => {
   const [isMouseEnter, setIsMouseEnter] = useState(false)
-  const history = useHistory()
-  const handleOpenInfoTeam = (id) => {
-    history.push('/teams/'+id)
-  }
+  // const history = useHistory()
+  // const handleOpenInfoTeam = (id) => {
+  //   history.push('/teams/'+id)
+  // }
 
   return (
     <div className='Teams'>
@@ -22,7 +22,7 @@ const Teams = ({ teams, pickTeam }) => {
               onMouseEnter={() => setIsMouseEnter(true)}
               onMouseOver={() => setIsMouseEnter(false)}
               actSlide={pickTeam ? pickTeam[0].tid : null}
-              handleOpenInfoTeam={handleOpenInfoTeam}
+              // handleOpenInfoTeam={handleOpenInfoTeam}
             />
 
           </div>

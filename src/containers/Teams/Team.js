@@ -1,26 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { useLocation, useRouteMatch } from 'react-router-dom'
+import { useRouteMatch, Link } from 'react-router-dom'
 
 
-const Team = ({ name, region, imgURL, colors, abbrev, active, tid, pickTeam, handleOpenInfoTeam, getPlayers}) => {
+const Team = ({ name, region, imgURL, colors, abbrev, active, tid, pickTeam, getPlayers}) => {
   const st = { backgroundImage: `url(${imgURL})` }
-  const location = useLocation()
+  // const location = useLocation()
   const mathc = useRouteMatch()
 
   if (!name && !region && !imgURL && !colors) return null
   return (
     <div className={`Teams_item ${active ? 'Teams_item-active' : ''}`}  >
       <div className="Teams_item-img" style={st}></div>
-      <div className="Teams_item-name" onClick={
+      <Link to={`/teams/${tid}`} className="Teams_item-name" onClick={
         () => {
           if (mathc.params.id) return null
-          handleOpenInfoTeam(tid)
+          // handleOpenInfoTeam(tid)
           pickTeam(tid)
           getPlayers(tid)
         }}>
           <span>{region}</span> {name}
-      </div>
+      </Link>
       
       <Flag arr={colors} abbrev={abbrev} />
     </div>
