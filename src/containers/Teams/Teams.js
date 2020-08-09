@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './Teams.scss'
 import { connect } from 'react-redux';
 import { Slider } from './Slider';
-import { useHistory } from 'react-router-dom';
 
 const Teams = ({ teams, pickTeam }) => {
   const [isMouseEnter, setIsMouseEnter] = useState(false)
